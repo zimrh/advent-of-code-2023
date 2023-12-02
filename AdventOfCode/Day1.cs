@@ -1,25 +1,14 @@
 ﻿namespace AdventOfCode;
 
+using AdventOfCode.Common;
 using AdventOfCode.Enums;
 
-public static class Day1
+public class Day1 : AdventDay
 {
-    public static IEnumerable<string> ReadFromFile(TestType testType, string day, Part part)
-    {
-        using var file = File.OpenRead($"./{testType}/{day}-{part}.txt");
-        using var sr = new StreamReader(file);
-        
-        while (!sr.EndOfStream)
-        {
-            yield return sr.ReadLine() ?? string.Empty;  
-        }      
-    }
-
-    // Sample Expected Value
-    public static int Run(TestType testType, Part part)
+    public int Run(TestType testType, Part part)
     {
         var total = 0;
-        foreach(var line in ReadFromFile(testType, nameof(Day1), part))
+        foreach(var line in ReadFromFile(testType, part))
         {
             var left = ' ';
             var right = ' ';
@@ -30,6 +19,7 @@ public static class Day1
                 left = (left == ' ') ? GetNumber(line, i, part) : left;
                 right = (right == ' ') ? GetNumber(line, length - i, part) : right;
             }
+
             total += int.Parse($"{left}{right}");
         }
         return total;
@@ -37,7 +27,7 @@ public static class Day1
 
     public static char GetNumber(string line, int i, Part part)
     {
-        if(IsInteger(line[i])) {
+        if(line[i].IsInteger()) {
             return line[i];
         }
         if (part == Part.One) {
@@ -68,9 +58,5 @@ public static class Day1
             }
         }
         return ' ';
-    }
-
-    public static bool IsInteger(char c) {
-        return c >= 48 && c <= 57;
     }
 }
