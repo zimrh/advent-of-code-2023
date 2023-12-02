@@ -18,48 +18,32 @@ public static class Day1
     // Sample Expected Value
     public static int Run(TestType testType, Part part)
     {
-        return Both(testType, part);
-    }
-
-    public static int Both(TestType testType, Part part) {
         var total = 0;
         foreach(var line in ReadFromFile(testType, nameof(Day1), part))
         {
             var left = ' ';
             var right = ' ';
-            var length = line.Length;
+            var length = line.Length - 1;
 
-            for (int i = 0; i < length; i++)
+            for (int i = 0; i <= length; i++)
             {
-                if (left != ' ') {
-                    continue;
-                }
-                if(IsInteger(line[i])) {
-                    left = line[i];
-                    continue;
-                }
-                if (part == Part.One) {
-                    continue;
-                }
-                left = TextNumberToChar(line, i);
-            }
-            for (int i = length - 1; i >= 0; i--)
-            {
-                if (right != ' ') {
-                    continue;
-                }
-                if(IsInteger(line[i])) {
-                    right = line[i];
-                    continue;
-                }
-                if (part == Part.One) {
-                    continue;
-                }
-                right = TextNumberToChar(line, i);
+                left = (left == ' ') ? GetNumber(line, i, part) : left;
+                right = (right == ' ') ? GetNumber(line, length - i, part) : right;
             }
             total += int.Parse($"{left}{right}");
         }
         return total;
+    }
+
+    public static char GetNumber(string line, int i, Part part)
+    {
+        if(IsInteger(line[i])) {
+            return line[i];
+        }
+        if (part == Part.One) {
+            return ' ';
+        }
+        return TextNumberToChar(line, i);
     }
 
     public static char TextNumberToChar(string line, int i)
