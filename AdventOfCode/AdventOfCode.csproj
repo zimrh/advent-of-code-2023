@@ -11,7 +11,9 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Enums\" />
-    <Folder Include="Inputs\" />
+    <None Remove="Inputs\Day2\ActualPartOne.txt" />
+    <None Remove="Inputs\Day2\ActualPartTwo.txt" />
+    <None Remove="Inputs\Day2\SamplePartOne.txt" />
+    <None Remove="Inputs\Day2\SamplePartTwo.txt" />
   </ItemGroup>
 </Project>
