@@ -27,7 +27,7 @@ public class Day1 : AdventDay
 
     public static char GetNumber(string line, int i, Part part)
     {
-        if(line[i].IsInteger()) {
+        if(line[i].IsNumber()) {
             return line[i];
         }
         if (part == Part.One) {
