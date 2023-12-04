@@ -15,5 +15,6 @@
     <None Remove="Inputs\Day2\ActualPartTwo.txt" />
     <None Remove="Inputs\Day2\SamplePartOne.txt" />
     <None Remove="Inputs\Day2\SamplePartTwo.txt" />
+    <None Remove="Inputs\Day3\SamplePartOne.txt" />
   </ItemGroup>
 </Project>
