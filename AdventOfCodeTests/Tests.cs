@@ -41,4 +41,16 @@ public class Tests
         Assert.That(partOneResult, Is.EqualTo(expected));
         Console.WriteLine($"Part {part}: {partOneResult}");
     }
+    
+    [Test]
+    [TestCase(TestType.Sample, Part.One, 13)]
+    [TestCase(TestType.Actual, Part.One, 15268)]
+    [TestCase(TestType.Sample, Part.Two, 30)]
+    [TestCase(TestType.Actual, Part.Two, 6283755)]
+    public void Day4(TestType testType, Part part, int expected)
+    {
+        var partOneResult = new Day4().Run(testType, part);
+        Assert.That(partOneResult, Is.EqualTo(expected));
+        Console.WriteLine($"Part {part}: {partOneResult}");
+    }
 }
