@@ -11,14 +11,12 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <None Remove="Inputs\Day2\ActualPartOne.txt" />
-    <None Remove="Inputs\Day2\ActualPartTwo.txt" />
-    <None Remove="Inputs\Day2\SamplePartOne.txt" />
-    <None Remove="Inputs\Day2\SamplePartTwo.txt" />
-    <None Remove="Inputs\Day3\SamplePartOne.txt" />
-    <None Remove="Inputs\Day4\ActualPartOne.txt" />
-    <None Remove="Inputs\Day4\ActualPartTwo.txt" />
-    <None Remove="Inputs\Day4\SamplePartOne.txt" />
-    <None Remove="Inputs\Day4\SamplePartTwo.txt" />
+    <None Remove="Inputs\Day2\Actual.txt" />
+    <None Remove="Inputs\Day2\Sample.txt" />
+    <None Remove="Inputs\Day3\Sample.txt" />
+    <None Remove="Inputs\Day4\Actual.txt" />
+    <None Remove="Inputs\Day4\Sample.txt" />
+    <None Remove="Inputs\Day5\ActualPartOne.txt" />
+    <None Remove="Inputs\Day5\SamplePartOne.txt" />
   </ItemGroup>
 </Project>
