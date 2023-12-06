@@ -11,10 +11,7 @@ public class Day5 : AdventDay
     {
         var maps = new List<GardenMap>();
         
-        var condensedMap = new GardenMap()
-        {
-            Name = "seed-to-location"
-        };
+        var condensedMap = new GardenMap();
         var seeds = new List<int>();
         var mapName = string.Empty;
         var rawMapping = new List<string>();
@@ -73,17 +70,24 @@ public class Day5 : AdventDay
     public void OutputMap(GardenMap gardenMap)
     {
         Console.WriteLine(gardenMap.Name);
+        Console.WriteLine($"| Source | | Dest |");
+        Console.WriteLine($"| ---- | ---- | ---- |");
         foreach(var rule in gardenMap.Rules.OrderBy(r => r.SourceStart))
         {
-            Console.WriteLine($"{rule.SourceStart | rule.DestinationStart | rule.Diff}");
-            Console.WriteLine($"{rule.SourceEnd | rule.DestinationEnd | rule.Diff}");
-            Console.WriteLine("====================================================");
+            Console.WriteLine($"| | | |");
+            Console.WriteLine($"| {rule.SourceStart} | → | {rule.DestinationStart} |");
+            Console.WriteLine($"| ↕ {rule.Range} | ∆ {rule.Diff} | |");
+            Console.WriteLine($"| {rule.SourceEnd} | → | {rule.DestinationEnd} |");
         }
+        Console.WriteLine("====================================================");
     }
 
     public GardenMap IntegrateMap(GardenMap condensedMap, GardenMap map)
     {
-        var newMap = new GardenMap();
+        var newMap = new GardenMap()
+        {
+            Name = $"seed-to-{map.Name.Split("-")[2]}"
+        };
 
         foreach(var rule in map.Rules)
         {
