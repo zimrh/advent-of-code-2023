@@ -3,7 +3,6 @@ using AdventOfCode.Enums;
 
 namespace AdventOfCodeTests;
 
-
 public class Tests
 {
     [Test]
@@ -71,6 +70,18 @@ public class Tests
     public void Day6(TestType testType, Part part, int expected)
     {
         var partOneResult = new Day6().Run(testType, part);
+        Assert.That(partOneResult, Is.EqualTo(expected));
+        Console.WriteLine($"Part {part}: {partOneResult}");
+    }
+
+    [Test]
+    [TestCase(TestType.Sample, Part.One, 6440)]
+    [TestCase(TestType.Actual, Part.One, 250957639)]
+    [TestCase(TestType.Sample, Part.Two, 5905)]
+    [TestCase(TestType.Actual, Part.Two, 251515496)]
+    public void Day7(TestType testType, Part part, int expected)
+    {
+        var partOneResult = new Day7().Run(testType, part);
         Assert.That(partOneResult, Is.EqualTo(expected));
         Console.WriteLine($"Part {part}: {partOneResult}");
     }
