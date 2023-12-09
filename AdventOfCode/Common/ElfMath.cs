@@ -21,8 +21,10 @@ public static class ElfMath
             for (int i = 3; i <= boundary; i += 2)
             {
                 if (number % i == 0)
+                {
                     isPrime = false;
-                break;
+                    break;
+                }
             }
         } while (true);
     }
