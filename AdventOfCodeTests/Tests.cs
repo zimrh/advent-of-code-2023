@@ -12,9 +12,8 @@ public class Tests
     [TestCase(TestType.Actual, Part.Two, 55358)]
     public void Day1(TestType testType, Part part, int expected)
     {
-        var partOneResult = new Day1().Run(testType, part);
-        Assert.That(partOneResult, Is.EqualTo(expected));
-        Console.WriteLine($"Part {part}: {partOneResult}");
+        var result = new Day1().Run(testType, part);
+        Assert.That(result, Is.EqualTo(expected));
     }
 
     [Test]
@@ -24,9 +23,8 @@ public class Tests
     [TestCase(TestType.Actual, Part.Two, 78375)]
     public void Day2(TestType testType, Part part, int expected)
     {
-        var partOneResult = new Day2().Run(testType, part);
-        Assert.That(partOneResult, Is.EqualTo(expected));
-        Console.WriteLine($"Part {part}: {partOneResult}");
+        var result = new Day2().Run(testType, part);
+        Assert.That(result, Is.EqualTo(expected));
     }
 
     [Test]
@@ -36,9 +34,8 @@ public class Tests
     [TestCase(TestType.Actual, Part.Two, 75312571)]
     public void Day3(TestType testType, Part part, int expected)
     {
-        var partOneResult = new Day3().Run(testType, part);
-        Assert.That(partOneResult, Is.EqualTo(expected));
-        Console.WriteLine($"Part {part}: {partOneResult}");
+        var result = new Day3().Run(testType, part);
+        Assert.That(result, Is.EqualTo(expected));
     }
     
     [Test]
@@ -48,18 +45,16 @@ public class Tests
     [TestCase(TestType.Actual, Part.Two, 6283755)]
     public void Day4(TestType testType, Part part, int expected)
     {
-        var partOneResult = new Day4().Run(testType, part);
-        Assert.That(partOneResult, Is.EqualTo(expected));
-        Console.WriteLine($"Part {part}: {partOneResult}");
+        var result = new Day4().Run(testType, part);
+        Assert.That(result, Is.EqualTo(expected));
     }
     
     [Test]
     [TestCase(TestType.Sample, Part.One, 35)]
     public void Day5(TestType testType, Part part, int expected)
     {
-        var partOneResult = new Day5().Run(testType, part);
-        Assert.That(partOneResult, Is.EqualTo(expected));
-        Console.WriteLine($"Part {part}: {partOneResult}");
+        var result = new Day5().Run(testType, part);
+        Assert.That(result, Is.EqualTo(expected));
     }
 
     [Test]
@@ -69,9 +64,8 @@ public class Tests
     [TestCase(TestType.Actual, Part.Two, 30125202)]
     public void Day6(TestType testType, Part part, int expected)
     {
-        var partOneResult = new Day6().Run(testType, part);
-        Assert.That(partOneResult, Is.EqualTo(expected));
-        Console.WriteLine($"Part {part}: {partOneResult}");
+        var result = new Day6().Run(testType, part);
+        Assert.That(result, Is.EqualTo(expected));
     }
 
     [Test]
@@ -81,9 +75,8 @@ public class Tests
     [TestCase(TestType.Actual, Part.Two, 251515496)]
     public void Day7(TestType testType, Part part, int expected)
     {
-        var partOneResult = new Day7().Run(testType, part);
-        Assert.That(partOneResult, Is.EqualTo(expected));
-        Console.WriteLine($"Part {part}: {partOneResult}");
+        var result = new Day7().Run(testType, part);
+        Assert.That(result, Is.EqualTo(expected));
     }
 
     [Test]
@@ -93,8 +86,18 @@ public class Tests
     [TestCase(TestType.Actual, Part.Two, 8245452805243)]
     public void Day8(TestType testType, Part part, long expected)
     {
-        var partOneResult = new Day8().Run(testType, part);
-        Assert.That(partOneResult, Is.EqualTo(expected));
-        Console.WriteLine($"Part {part}: {partOneResult}");
+        var result = new Day8().Run(testType, part);
+        Assert.That(result, Is.EqualTo(expected));
+    }
+
+    [Test]
+    [TestCase(TestType.Sample, Part.One, 114)]
+    [TestCase(TestType.Actual, Part.One, 1992273652)]
+    [TestCase(TestType.Sample, Part.Two, 2)]
+    [TestCase(TestType.Actual, Part.Two, 1012)]
+    public void Day9(TestType testType, Part part, long expected)
+    {
+        var result = new Day9().Run(testType, part);
+        Assert.That(result, Is.EqualTo(expected));
     }
 }
