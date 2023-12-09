@@ -18,37 +18,36 @@ public class Day9 : AdventDay
     {
         var oasisHistory = new List<List<List<int>>>();
         foreach (var line in ReadFromFile(testType, part))
-        {
-            oasisHistory.Add([
+        {      
+            var day = new List<List<int>> {
                 line.Split(" ", StringSplitOptions.RemoveEmptyEntries)
                 .Select(int.Parse).ToList()
-            ]);           
-        }
-        
-        for (int day = 0; day < oasisHistory.Count; day++)
-        {
+            };
+
             var record = 0;
             do
             {
-                oasisHistory[day].Add(new List<int>());
-                for (int entry = 1; entry < oasisHistory[day][record].Count; entry++)
+                day.Add([]);
+                for (int entry = 1; entry < day[record].Count; entry++)
                 {
-                    oasisHistory[day][record + 1].Add(
-                        oasisHistory[day][record][entry] - oasisHistory[day][record][entry - 1]);
+                    day[record + 1].Add(
+                        day[record][entry] - day[record][entry - 1]);
                 }
                 record++;
-            } while (!oasisHistory[day][record].All(r => r == 0));
+            } while (!day[record].All(r => r == 0));
 
             do
             {
-                oasisHistory[day][record - 1].Insert(0,
-                    oasisHistory[day][record - 1].First() - oasisHistory[day][record].First()
+                day[record - 1].Insert(0,
+                    day[record - 1].First() - day[record].First()
                 );
-                oasisHistory[day][record - 1].Add(
-                    oasisHistory[day][record].Last() + oasisHistory[day][record - 1].Last()
+                day[record - 1].Add(
+                    day[record].Last() + day[record - 1].Last()
                 );
                 record--;
             } while (record > 0);
+            
+            oasisHistory.Add(day);
         }
 
         return oasisHistory;
