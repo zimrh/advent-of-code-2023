@@ -89,7 +89,9 @@ public class Tests
     [Test]
     [TestCase(TestType.Sample, Part.One, 6)]
     [TestCase(TestType.Actual, Part.One, 12599)]
-    public void Day8(TestType testType, Part part, int expected)
+    [TestCase(TestType.Sample, Part.Two, 6)]
+    [TestCase(TestType.Actual, Part.Two, 8245452805243)]
+    public void Day8(TestType testType, Part part, long expected)
     {
         var partOneResult = new Day8().Run(testType, part);
         Assert.That(partOneResult, Is.EqualTo(expected));
