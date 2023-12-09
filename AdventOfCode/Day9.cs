@@ -38,12 +38,6 @@ public class Day9 : AdventDay
                 }
                 record++;
             } while (!oasisHistory[day][record].All(r => r == 0));
-        }
-
-        for (int day = 0; day < oasisHistory.Count; day++)
-        {
-            var record = oasisHistory[day].Count - 1;
-            oasisHistory[day][record].Insert(0, 0);
 
             do
             {
