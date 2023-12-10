@@ -100,4 +100,13 @@ public class Tests
         var result = new Day9().Run(testType, part);
         Assert.That(result, Is.EqualTo(expected));
     }
+
+    [Test]
+    [TestCase(TestType.Sample, Part.One, 114)]
+    [TestCase(TestType.Actual, Part.One, 1992273652)]
+    public void Day10(TestType testType, Part part, long expected)
+    {
+        var result = new Day10().Run(testType, part);
+        Assert.That(result, Is.EqualTo(expected));
+    }
 }
