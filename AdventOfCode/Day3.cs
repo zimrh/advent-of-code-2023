@@ -109,7 +109,7 @@ public class Day3 : AdventDay
                 {
                     continue;
                 }
-                schematic.Plan.Add(Coordinate.ToRaw(x, y), line[x]);
+                schematic.Map.Add(Coordinate.ToRaw(x, y), line[x]);
                 if (!line[x].IsNumber()) {
                     schematic.Symbols.Add(Coordinate.ToRaw(x, y), line[x]);
                     continue;
