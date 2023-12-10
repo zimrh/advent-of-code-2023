@@ -36,4 +36,41 @@ public class PipeMap : CharMap
         }
         return validDirections;
     }
+
+    public char ReplaceStartingCharacter(Coordinate startingCoord)
+    {
+        var directions = GetValidStartDirections(startingCoord);
+
+        if (directions.Contains(Direction.Up) && directions.Contains(Direction.Down))
+        {
+            return '|';
+        }
+
+        if (directions.Contains(Direction.Left) && directions.Contains(Direction.Right))
+        {
+            return '-';
+        }
+
+        if (directions.Contains(Direction.Up) && directions.Contains(Direction.Left))
+        {
+            return 'J';
+        }
+        
+        if (directions.Contains(Direction.Down) && directions.Contains(Direction.Left))
+        {
+            return '7';
+        }
+        
+        if (directions.Contains(Direction.Up) && directions.Contains(Direction.Right))
+        {
+            return 'L';
+        }
+        
+        if (directions.Contains(Direction.Down) && directions.Contains(Direction.Right))
+        {
+            return 'F';
+        }
+
+        throw new ArgumentOutOfRangeException("Directions are not valid");
+    }
 }

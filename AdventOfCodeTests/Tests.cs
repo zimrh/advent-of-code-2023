@@ -95,7 +95,9 @@ public class Tests
 
     [Test]
     [TestCase(TestType.Sample, Part.One, 8)]
-    [TestCase(TestType.Actual, Part.One, 1992273652)]
+    [TestCase(TestType.Actual, Part.One, 7107)]
+    [TestCase(TestType.Sample, Part.Two, 10)]
+    [TestCase(TestType.Actual, Part.Two, 281)]
     public void Day10(TestType testType, Part part, long expected)
     {
         var result = new Day10().Run(testType, part);
