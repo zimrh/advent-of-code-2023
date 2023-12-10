@@ -5,7 +5,13 @@ namespace AdventOfCode.Models;
 public class PipeMap : CharMap
 {
     public Coordinate StartingPoint { get; set; } = new();
-    public List<Direction> GetValidDirections(Coordinate coord)
+
+    public PipePart GetPipePart(Coordinate coordinate)
+    {
+        return new PipePart(GetCoordinate(coordinate));
+    }
+
+    public List<Direction> GetValidStartDirections(Coordinate coord)
     {
         var validDirections = new List<Direction>();
         var up = GetCoordinate(new Coordinate(coord, Direction.Up));

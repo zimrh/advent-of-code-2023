@@ -15,8 +15,8 @@ public class Day10 : AdventDay
 
     public int RunPartOne(PipeMap pipeMap)
     {
-        var paths = new List<List<Coordinate>>();
-        foreach(var direction in pipeMap.GetValidDirections(pipeMap.StartingPoint))
+        var paths = new List<HashSet<Coordinate>>();
+        foreach(var direction in pipeMap.GetValidStartDirections(pipeMap.StartingPoint))
         {
             paths.Add([
                 new (pipeMap.StartingPoint),
@@ -27,18 +27,20 @@ public class Day10 : AdventDay
         {
             foreach(var path in paths)
             {
-                foreach(var direction in pipeMap.GetValidDirections(path.Last()))
+                var pipePart = pipeMap.GetPipePart(path.Last());
+                foreach(var direction in pipePart.GetAvailableDirections())
                 {
                     var newCoord = new Coordinate(path.Last(), direction);
-                    if (path.Last() == newCoord)
+                    if (path.Contains(newCoord))
                     {
                         continue;
                     }
                     path.Add(newCoord);
+                    break;
                 }
             }
-        } while (paths[0].Last() == paths[1].Last());
-        return 0;
+        } while (!paths[0].Last().Equals(paths[1].Last()));
+        return paths[0].Count - 1;
     }
 
 

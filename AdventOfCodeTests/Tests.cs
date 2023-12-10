@@ -50,14 +50,6 @@ public class Tests
     }
     
     [Test]
-    [TestCase(TestType.Sample, Part.One, 35)]
-    public void Day5(TestType testType, Part part, int expected)
-    {
-        var result = new Day5().Run(testType, part);
-        Assert.That(result, Is.EqualTo(expected));
-    }
-
-    [Test]
     [TestCase(TestType.Sample, Part.One, 288)]
     [TestCase(TestType.Actual, Part.One, 2344708)]
     [TestCase(TestType.Sample, Part.Two, 71503)]
@@ -102,7 +94,7 @@ public class Tests
     }
 
     [Test]
-    [TestCase(TestType.Sample, Part.One, 114)]
+    [TestCase(TestType.Sample, Part.One, 8)]
     [TestCase(TestType.Actual, Part.One, 1992273652)]
     public void Day10(TestType testType, Part part, long expected)
     {

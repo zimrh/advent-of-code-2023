@@ -50,6 +50,11 @@ public class Coordinate
         return Move(this, direction);
     }
 
+    public override int GetHashCode()
+    {
+        return HashCode.Combine(X, Y);
+    }
+
     public override bool Equals(object? obj)
     {
         if (obj == null)
