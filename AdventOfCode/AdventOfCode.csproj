@@ -6,20 +6,8 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
   <ItemGroup>
-    <Content Include="Inputs\**">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-  </ItemGroup>
-  <ItemGroup>
-    <None Remove="Inputs\Day10\Actual.txt" />
-    <None Remove="Inputs\Day10\Sample.txt" />
-    <None Remove="Inputs\Day2\Actual.txt" />
-    <None Remove="Inputs\Day2\Sample.txt" />
-    <None Remove="Inputs\Day3\Sample.txt" />
-    <None Remove="Inputs\Day4\Actual.txt" />
-    <None Remove="Inputs\Day4\Sample.txt" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Inputs\Day5\" />
+    <None Update="Inputs\**">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 </Project>
