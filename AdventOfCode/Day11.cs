@@ -1,4 +1,5 @@
-﻿using AdventOfCode.Common;
+﻿using System.Text;
+using AdventOfCode.Common;
 using AdventOfCode.Enums;
 
 namespace AdventOfCode;
@@ -9,7 +10,7 @@ public class Day11 : AdventDay
     public long Run(TestType testType, Part part)
     {
         var galaxyMap = LoadGalaxyMap(testType, part);
-        galaxyMap = ExpandGalaxyMap(galaxyMap, part == Part.One ? 1 : 1000000);
+        galaxyMap = ExpandGalaxyMap(galaxyMap, part == Part.One ? 2 : 1000000);
         return getSumOfShortestDistances(galaxyMap);
     }
 
@@ -36,7 +37,7 @@ public class Day11 : AdventDay
         {
             var galaxiesInColumn = galaxyMap.GetGalaxiesInColumn(x);
 
-            expansionAmount += (galaxiesInColumn.Count == 0) ? expansion : 0;
+            expansionAmount += (galaxiesInColumn.Count == 0) ? expansion - 1 : 0;
 
             foreach(var galaxy in galaxiesInColumn)
             {
@@ -51,7 +52,7 @@ public class Day11 : AdventDay
         {
             var galaxiesInRow = newColumnGalaxyMap.GetGalaxiesInRow(y);
 
-            expansionAmount += (galaxiesInRow.Count == 0) ? 1 : 0;
+            expansionAmount += (galaxiesInRow.Count == 0) ? expansion - 1 : 0;
 
             foreach(var galaxy in galaxiesInRow)
             {
