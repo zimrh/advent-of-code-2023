@@ -3,5 +3,5 @@
 using AdventOfCode;
 using AdventOfCode.Enums;
 
-var test = new Day11();
-test.Run(TestType.Sample, Part.Two);
+var test = new Day12();
+test.Run(TestType.Sample, Part.One);
