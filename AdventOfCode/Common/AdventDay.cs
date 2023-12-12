@@ -6,11 +6,11 @@ public abstract class AdventDay
 {
     public IEnumerable<string> ReadFromFile(TestType testType, Part part)
     {
-        var fileName = $"./inputs/{GetType().Name}/{testType}Part{part}.txt";
+        var fileName = $"./Inputs/{GetType().Name}/{testType}Part{part}.txt";
 
         if (!File.Exists(fileName))
         {
-            fileName = $"./inputs/{GetType().Name}/{testType}.txt";
+            fileName = $"./Inputs/{GetType().Name}/{testType}.txt";
         }
         
         using var file = File.OpenRead(fileName);

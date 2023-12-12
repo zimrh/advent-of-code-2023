@@ -13,10 +13,6 @@ public class Day7 : AdventDay
             .ThenBy(h => h)
             .ToList();
         
-        foreach(var sortedHand in sortedHands){
-            Console.WriteLine($"{new string(sortedHand.Cards.ToArray())}, {sortedHand.HandType}");
-        }
-
         var winnings = 0;
         for (int i = 0; i < sortedHands.Count; i++)
         {
