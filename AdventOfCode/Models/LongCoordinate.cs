@@ -1,51 +1,51 @@
-﻿using System.Data;
+using System.Data;
 using AdventOfCode.Enums;
 
 namespace AdventOfCode;
 
-public class Coordinate
+public class LongCoordinate
 {
-    public Coordinate() { }
+    public LongCoordinate() { }
 
-    public Coordinate(Coordinate coordinate)
+    public LongCoordinate(LongCoordinate coordinate)
     {
         X = coordinate.X;
         Y = coordinate.Y;
     }
 
-    public Coordinate(Coordinate coordinate, Direction direction)
+    public LongCoordinate(LongCoordinate coordinate, Direction direction)
     {
         X = coordinate.X;
         Y = coordinate.Y;
         Move(this, direction);
     }
 
-    public Coordinate(string raw)
+    public LongCoordinate(string raw)
     {
         var coords = raw.Split(":");
-        X = int.Parse(coords[0]);
-        Y = int.Parse(coords[1]);
+        X = long.Parse(coords[0]);
+        Y = long.Parse(coords[1]);
     }
 
-    public Coordinate(int x, int y)
+    public LongCoordinate(long x, long y)
     {
         X = x;
         Y = y;
     }
 
-    public int X;
+    public long X;
 
-    public int Y;
+    public long Y;
 
     public override string ToString()
     {
         return $"{X}:{Y}";
     }
 
-    public static string ToRaw(int x, int y)
+    public static string ToRaw(long x, long y)
         => $"{x}:{y}";
     
-    public Coordinate Move(Direction direction)
+    public LongCoordinate Move(Direction direction)
     {
         return Move(this, direction);
     }
@@ -66,16 +66,16 @@ public class Coordinate
         {
             throw new InvalidCastException($"{obj.GetType().Name} is not {GetType().Name}");
         }
-        var secondCoord = (Coordinate)obj;
+        var secondCoord = (LongCoordinate)obj;
 
         return X == secondCoord.X &&
                 Y == secondCoord.Y;
     }
 
-    public static Direction GetDirection(Coordinate startPoint, Coordinate endPoint)
+    public static Direction GetDirection(LongCoordinate startPolong, LongCoordinate endPolong)
     {
-        var x = startPoint.X - endPoint.X;
-        var y = startPoint.Y - endPoint.Y;
+        var x = startPolong.X - endPolong.X;
+        var y = startPolong.Y - endPolong.Y;
         if (x == 0 && y == 0) { return Direction.DoNot; }
         if (x == 0 && y <  0) { return Direction.Down; }
         if (x == 0 && y >  0) { return Direction.Up; }
@@ -88,7 +88,7 @@ public class Coordinate
         throw new ArgumentOutOfRangeException("Not sure how you got here but welcome, have an exception");
     }
 
-    public static Coordinate Move(Coordinate coord, Direction direction)
+    public static LongCoordinate Move(LongCoordinate coord, Direction direction)
     {
         switch(direction)
         {
@@ -133,10 +133,10 @@ public class Coordinate
         }
     }
 
-    internal static int GetDistance(string firstGalaxy, string secondGalaxy)
+    internal static long GetDistance(string firstGalaxy, string secondGalaxy)
     {
-        var first = new Coordinate(firstGalaxy);
-        var second = new Coordinate(secondGalaxy);
+        var first = new LongCoordinate(firstGalaxy);
+        var second = new LongCoordinate(secondGalaxy);
         var xDiff = first.X > second.X ? first.X - second.X : second.X - first.X;
         var yDiff = first.Y > second.Y ? first.Y - second.Y : second.Y - first.Y;
         return xDiff + yDiff;
